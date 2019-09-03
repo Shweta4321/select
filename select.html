@@ -12,7 +12,6 @@
     <script type="text/javascript">
         $(function () {
             $("#submit").click(function () {
-                if ($("#username").val() && $("#mobile").val() && $("#email").val()) {
                     window.parent.postMessage(JSON.stringify({
                         event_code: 'ym-client-event', data: JSON.stringify({
                             event: {
@@ -25,17 +24,7 @@
                             }
                         })
                     }), '*');
-​
-                ​
-                    $('#custom :input').attr('disabled', 'disabled');
-                    $('#custom').fadeTo("slow", 0.15, function () {
-                        $(this).find(':input').attr('disabled', 'disabled');
-                        $(this).find('label').css('cursor', 'default');
-                        $('#add').append('Submitted');
-                    });
-                } else {
-                    alert("Please enter your name,mobile number and email address");
-                }
+       
             })
         })
     </script>
