@@ -11,18 +11,22 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript">
             $("#submit").click(function () {
+                if ($("#username").val() && $("#mobile").val() && $("#email").val()) {
                     window.parent.postMessage(JSON.stringify({
                         event_code: 'ym-client-event', data: JSON.stringify({
                             event: {
                                 code: "details",
                                 data: {
-                                    name:"Arun",
-                                    mobile:"9876543210",
-                                    email: "dfghj@dfghj.com"
+                                    name: $("#username").val(),
+                                    mobile: $("#mobile").val(),
+                                    email: $("#email").val()
                                 }
                             }
                         })
                     }), '*')
+                     } else {
+                    alert("Please enter your name,mobile number and email address");
+                }
         })
     </script>
 </head>
