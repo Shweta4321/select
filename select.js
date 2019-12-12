@@ -10,9 +10,11 @@ window.addEventListener('message', function(eventData) {
 <!--       var newWindow = window.open();
       newWindow.document.write(event.data.data);
       newWindow.document.close(); -->
-var pageContent = '<html><head></head><body><form id="paymentForm" action="' + "https://venus.bflaf.com:7073/bafl_preprod/chatbotpayment/confirm" + '" method="post">' + '<input type="hidden" name="lan" value="' + this.lan + '">' + '<input type="hidden" name="payment_amount" value="1234"' + this.payAmount + '">' + '<input type="hidden" name="email" value="shweta@gmail.com"' + this.emailID + '">' + '<input type="hidden" name="mobile" value="7777788888"' + this.mobileNo + '">' + '<input type="hidden" name="ptype" value="QPR"' + this.type + '">' + '<input type="hidden" name="token" value="35c7e74911b7fe8cd97b9069385ee0af7bcf14eb"' + this.token + '">' + '<input type="hidden" name="allLans" value="' + this.allLansWithCommaSeparation + '">' + '<input type="hidden" name="flag" value="' + this.flag + '">' + '</form>
-    <script type="text/javascript">document.getElementById("paymentForm").submit();</script></body></html>'; 
-      var pageContentUrl = 'data:text/html;base64,' + btoa(pageContent); 
+var pageContent = '<html><head></head><body><form id="paymentForm" action="' + "https://venus.bflaf.com:7073/bafl_preprod/chatbotpayment/confirm" + '" method="post">' + '<input type="hidden" name="lan" value="' + "L2WHOW03209659" + '">' + '<input type="hidden" name="payment_amount" value="' + "1234" + '">' + '<input type="hidden" name="email" value="' + "shweta@gmail.com" + '">' + '<input type="hidden" name="mobile" value="' + "7777788888" + '">' + '<input type="hidden" name="ptype" value="' + "QPR" + '">' + '<input type="hidden" name="token" value="' + "284a8f7382c8b41b5ce7d8bb2263f4a408915b34" + '">' + '<input type="hidden" name="allLans" value="' + "L2WHOW03209659" + '">' + '<input type="hidden" name="flag" value="' + true + '">' + '</form> <script type="text/javascript">document.getElementById("paymentForm").submit();</script></body></html>'; 
+ console.log(pageContent,"pageContent")
+   var pageContentUrl = 'data:text/html;base64,' + btoa(pageContent); 
+    console.log(pageContentUrl,"pageContentUrl")
+
     window.open(pageContentUrl, "default")
     return;
   }
