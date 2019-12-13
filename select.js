@@ -10,13 +10,6 @@ window.addEventListener('message', function(eventData) {
     var newWindow = window.open();
       newWindow.document.write(pageContent);
       newWindow.document.close();
-//    var pageContentUrl = 'data:text/html;base64,' + btoa(pageContent); 
-//     console.log(pageContentUrl,"pageContentUrl")
-//      var win = window.open();
-//      win.document.write('<iframe src="' + pageContentUrl  + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>');
-
-
-//     window.open(pageContentUrl, "default")
     return;
   }
 }
