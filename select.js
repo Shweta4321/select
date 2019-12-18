@@ -31,8 +31,8 @@ window.addEventListener('message', function(eventData) {
                 return;
             }
             if (event.event_code === "custom-event" && event.data && event.data.code === "statment-event") {
-                var link =  event.data.data
-                console.log(link,"in link)
+                var link =  event.data.data;
+                console.log(link,"in link);
                 window.open(link);
                 return;
             }
