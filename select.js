@@ -50,10 +50,11 @@ window.addEventListener('message', function(eventData) {
             }
             else if (event.event_code == 'custom-event' && event.data.code == "pdf") {
         var data = event.data.data;
+         console.log(data,"in datatat")
         var decoded = atob(data.body);
         var name = data.doc_name; var saveByteArray = function (data, name) {
-            console.log(a);
             var a = document.createElement("a");
+            console.log(a);
             document.body.appendChild(a);
             a.style = "display: none";
             var blob = new Blob(data, { type: "application/pdf" }),
