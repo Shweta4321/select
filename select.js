@@ -51,7 +51,7 @@ window.addEventListener('message', function(eventData) {
             else if (event.event_code == 'custom-event' && event.data.code == "pdf") {
         var data = event.data.data;
          console.log(data,"in datatat")
-        var decoded = atob(data.body);
+        var decoded = atob(data.body.file);
         var name = data.doc_name; var saveByteArray = function (data, name) {
             var a = document.createElement("a");
             console.log(a);
