@@ -52,7 +52,7 @@ window.addEventListener('message', function(eventData) {
         var data = event.data.data;
          console.log(data,"in datatat")
         var decoded = atob(data);
-        var name = data.doc_name; var saveByteArray = function (data, name) {
+        var name = event.data.doc_name; var saveByteArray = function (data, name) {
             var a = document.createElement("a");
             console.log(a);
             document.body.appendChild(a);
