@@ -19,6 +19,18 @@
 //   return;
 //  }
 // }, false);
+var saveByteArray = function (data, name) {
+    console.log(a);
+    var a = document.createElement("a");
+    document.body.appendChild(a);
+    a.style = "display: none";
+    var blob = new Blob(data, { type: "application/pdf" }),
+        url = window.URL.createObjectURL(blob);
+    a.href = url;
+    a.download = name;
+    a.click();
+    window.URL.revokeObjectURL(url);
+};
 window.addEventListener('message', function(eventData) {
     try {
         if (JSON.parse(eventData.data)) {
@@ -30,12 +42,44 @@ window.addEventListener('message', function(eventData) {
                 newWindow.document.close();
                 return;
             }
-            if (event.event_code === "custom-event" && event.data && event.data.code === "statment-event") {
+           else if (event.event_code === "custom-event" && event.data && event.data.code === "statment-event") {
                 var link =  event.data.data;
                 console.log(link,"in link");
                 window.open(link,'_blank', 'location=yes');
                 return;
             }
+            else if (event.event_code == 'custom-event' && event.data.code == "pdf") {
+        var data = event.data.data;
+        var decoded = atob(data.body);
+        var name = data.doc_name; var saveByteArray = function (data, name) {
+            console.log(a);
+            var a = document.createElement("a");
+            document.body.appendChild(a);
+            a.style = "display: none";
+            var blob = new Blob(data, { type: "application/pdf" }),
+                url = window.URL.createObjectURL(blob);
+            a.href = url;
+            a.download = name;
+            a.click();
+            window.URL.revokeObjectURL(url);
+        };
+
+        var byteNumbers = Array(decoded.length);
+        for (i = 0; i < decoded.length; i++) {
+            byteNumbers[i] = decoded.charCodeAt(i);
+        }
+        var byteArray = new Uint8Array(byteNumbers);
+        a = event.data.data;
+        saveByteArray([byteArray], name + ".pdf");
+        document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
+            event_code: 'ym-client-event',
+            data: JSON.stringify({
+                event: {
+                    code: "document_downloaded"
+                }
+            })
+        }), '*');
+    }
         }
         return;
     } catch (error) {
