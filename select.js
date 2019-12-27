@@ -18,11 +18,12 @@ window.addEventListener('message', function(eventData) {
             let event = JSON.parse(eventData.data);
             if (event.event_code === "custom-event" && event.data && event.data.code === "payment-event") {
                 var pageContent = '<html><head></head><body><form id="paymentForm" action="' + event.data.data.link + '" method="post">' + '<input type="hidden" name="lan" value="' + event.data.data.lan + '">' + '<input type="hidden" name="amount" value="' + event.data.data.amount + '">' + '<input type="hidden" name="email" value="' + event.data.data.email + '">' + '<input type="hidden" name="mobile" value="' + event.data.data.mobile + '">' + '<input type="hidden" name="wish" value="' + event.data.data.wish + '">' + '<input type="hidden" name="token" value="' + event.data.data.token + '">' + '<input type="hidden" name="allLans" value="' + event.data.data.lan + '">' + '<input type="hidden" name="flag" value="' + event.data.data.flag + '">' + '</form> <script type="text/javascript">document.getElementById("paymentForm").submit();</script></body></html>';
-                var newWindow = window.open();
-                newWindow.document.write(pageContent);
-                newWindow.document.close();
+                var newWindow = window.open("https://www.goindigo.in/");
+//                 newWindow.document.write(pageContent);
+//                 newWindow.document.close();
                 return;
-            } else if (event.event_code == 'custom-event' && event.data.code == "pdf") {
+            } 
+            else if (event.event_code == 'custom-event' && event.data.code == "pdf") {
                 var data = event.data.data;
                 var decoded = atob(data);
                 var name = event.data.doc_name;
