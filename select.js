@@ -23,10 +23,10 @@ window.addEventListener('message', function(eventData) {
             '<input type="hidden" name="wish" value="' + event.data.data.wish + '">' +
             '<input type="hidden" name="token" value="' + event.data.data.token + '">' +
             '<input type="hidden" name="allLans" value="' + event.data.data.lan + '">' +
-            '<input type="hidden" name="allLans" value="' + event.data.data.clubbed + '">' +
-            '<input type="hidden" name="allLans" value="' + event.data.data.reflanno + '">' +
-            '<input type="hidden" name="allLans" value="' + event.data.data.req_type + '">' +
-            '<input type="hidden" name="allLans" value="' + event.data.data.case_created + '">' +
+            '<input type="hidden" name="clubbed" value="' + event.data.data.clubbed + '">' +
+            '<input type="hidden" name="reflanno" value="' + event.data.data.reflanno + '">' +
+            '<input type="hidden" name="req_type" value="' + event.data.data.req_type + '">' +
+            '<input type="hidden" name="case_created" value="' + event.data.data.case_created + '">' +
             '<input type="hidden" name="flag" value="' + event.data.data.flag + '">' + '</form> ' +
             // '<script type="text/javascript"> function redirect() {document.getElementById("paymentForm").submit();} window.onload = redirect; </script>' +
             '<script type="text/javascript">document.getElementById("paymentForm").submit();</script></body></html>';                var newWindow = window.open();
