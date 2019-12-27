@@ -11,6 +11,7 @@ window.addEventListener('message', function(eventData) {
                 return;
             } 
             else if (event.event_code === "custom-event" && event.data && event.data.code === "foreclosure-event") {
+                console.log("herehererre"
             var pageContent = '<html>' +
             '<head></head>' +
             '<body>' +
