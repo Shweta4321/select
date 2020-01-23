@@ -9,6 +9,10 @@ window.addEventListener('message', function(eventData) {
 //                 newWindow.document.close();
                 return;
             } 
+            else if (event.event_code === "custom-event" && event.data && event.data.code === "live_agent") {
+                var newWindow = window.open(event.data.data);
+                return;
+            }
             else if (event.event_code === "custom-event" && event.data && event.data.code === "foreclosure-event") {
             var pageContent = '<html>' +
             '<head></head>' +
