@@ -1,5 +1,6 @@
 window.addEventListener('message', function(eventData) {
     try {
+        console.log(eventData.data,"in datata evevevent")
         if (JSON.parse(eventData.data)) {
             let event = JSON.parse(eventData.data);
             console.log(event,"i am in event")
