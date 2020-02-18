@@ -4,20 +4,43 @@
 <head></head>
 
 <body>
-    <form id="paymentForm" action="https://venus.bflaf.com:7073/bafl_preprod/chatbotpayment/confirm" method = "post">
-  <input type="hidden" name="lan" value="L2WPUN01280047">
-  <input type="hidden" name="amount" value="1234">
-  <input type="hidden" name="email" value="s@gmail.com">
-  <input type="hidden" name="mobile" value="9876543210">
-  <input type="hidden" name="wish" value="QPR">
-  <input type="hidden" name="token" value="95aa85625b832034532a82d0f1eb4df8ab2d5faa">
-  <input type="hidden" name="allLans" value="L2WPUN01280047">
-  <input type="hidden" name="flag" value=true>
-  <input type="button" onclick="myFunction()" value="Submit form">
-</form>
+    <form id="paymentForm" action="" method="post">
+        <input type="hidden" id="lan" name="lan" value="">
+        <input type="hidden" id="amount"  name="amount" value="">
+        <input type="hidden" id="email" name="email" value="">
+        <input type="hidden" id="mobile" name="mobile" value="">
+        <input type="hidden" id="wish" name="wish" value="">
+        <input type="hidden" id="token" name="token" value="">
+        <input type="hidden" id="allLans" name="allLans" value="">
+        <input type="hidden" id="flag" name="flag" value="">
+        <input type="submit" value="Confirm Payment">
+    </form>
+    <script>
+        init();
+            function init(){
+                document.getElementById("paymentForm").setAttribute('action', getUrlParameter('link'));
+                document.getElementById("lan").setAttribute('value', getUrlParameter('lan'));
+                document.getElementById("amount").setAttribute('value', getUrlParameter('amount'));
+                document.getElementById("email").setAttribute('value', getUrlParameter('email'));
+                document.getElementById("mobile").setAttribute('value', getUrlParameter('mobile'));
+                document.getElementById("wish").setAttribute('value', getUrlParameter('wish'));
+                document.getElementById("token").setAttribute('value', getUrlParameter('token'));
+                document.getElementById("allLans").setAttribute('value', getUrlParameter('lan'));
+                document.getElementById("flag").setAttribute('value', getUrlParameter('flag'));
+                sendForm();
+            }
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+       function sendForm(){
+        document.getElementById("paymentForm").submit();
+       }
+                
+    </script>
 </body>
-<script>
-function myFunction() {
-  document.getElementById("paymentForm").submit();
-}
+
 </html>
+
