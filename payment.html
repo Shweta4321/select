@@ -1,0 +1,46 @@
+
+<html>
+
+<head></head>
+
+<body>
+    <form id="paymentForm" action="" method="post">
+        <input type="hidden" id="lan" name="lan" value="">
+        <input type="hidden" id="amount"  name="amount" value="">
+        <input type="hidden" id="email" name="email" value="">
+        <input type="hidden" id="mobile" name="mobile" value="">
+        <input type="hidden" id="wish" name="wish" value="">
+        <input type="hidden" id="token" name="token" value="">
+        <input type="hidden" id="allLans" name="allLans" value="">
+        <input type="hidden" id="flag" name="flag" value="">
+        <input type="submit" value="Confirm Payment">
+    </form>
+    <script>
+        init();
+            function init(){
+                document.getElementById("paymentForm").setAttribute('action', getUrlParameter('link'));
+                document.getElementById("lan").setAttribute('value', getUrlParameter('lan'));
+                document.getElementById("amount").setAttribute('value', getUrlParameter('amount'));
+                document.getElementById("email").setAttribute('value', getUrlParameter('email'));
+                document.getElementById("mobile").setAttribute('value', getUrlParameter('mobile'));
+                document.getElementById("wish").setAttribute('value', getUrlParameter('wish'));
+                document.getElementById("token").setAttribute('value', getUrlParameter('token'));
+                document.getElementById("allLans").setAttribute('value', getUrlParameter('lan'));
+                document.getElementById("flag").setAttribute('value', getUrlParameter('flag'));
+                sendForm();
+            }
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+       function sendForm(){
+        document.getElementById("paymentForm").submit();
+                
+       }
+                
+    </script>
+</body>
+
+</html>
