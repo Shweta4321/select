@@ -18,8 +18,6 @@
     <script>
         init();
             function init(){
-                var location = location.search
-                console.log(location)
                 document.getElementById("paymentForm").setAttribute('action', getUrlParameter('link'));
                 document.getElementById("lan").setAttribute('value', getUrlParameter('lan'));
                 document.getElementById("amount").setAttribute('value', getUrlParameter('amount'));
@@ -32,6 +30,8 @@
                 sendForm();
             }
         function getUrlParameter(name) {
+            var location = location.search
+            console.log(location)
             name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
             var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
             var results = regex.exec(location.search);
