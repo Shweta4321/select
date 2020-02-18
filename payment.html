@@ -31,10 +31,11 @@
             }
         function getUrlParameter(name) {
             var location_search = location.search
+            location_search = window.atob(location_search);
             console.log(location_search)
             name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
             var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-            var results = regex.exec(location.search);
+            var results = regex.exec(location_search);
             return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
         }
        function sendForm(){
