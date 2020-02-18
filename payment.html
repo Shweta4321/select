@@ -30,8 +30,7 @@
                 sendForm();
             }
         function getUrlParameter(name) {
-            var location = location.search
-            console.log(location)
+            console.log(location.search)
             name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
             var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
             var results = regex.exec(location.search);
