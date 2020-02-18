@@ -32,6 +32,8 @@
         function getUrlParameter(name) {
             var location_search = location.search
             console.log(location_search)
+            location_search = location_searchx.substring(11)
+            console.log(location_search)
             location_search = window.atob(location_search);
             console.log(location_search)
             name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
