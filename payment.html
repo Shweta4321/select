@@ -31,10 +31,10 @@
             }
         function getUrlParameter(name) {
             var location_search = location.search
-            console.log(location_search)
             location_search = location_search.substring(11)
-            console.log(location_search)
             location_search = window.atob(location_search);
+            location_search = JSON.parse(location_search)
+            location_search = `?flag=${location_search.flag}&lan=${location_search.lan}&mobile=${location_search.mobile}&email=${location_search.email}&amount=${location_search.amount}&wish=${location_search.wish}&token=${location_search.token}&case_created=${location_search['case_created']}&link=${location_search.link}`
             console.log(location_search)
             name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
             var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
