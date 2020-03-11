@@ -12,6 +12,10 @@
         <input type="hidden" id="wish" name="wish" value="">
         <input type="hidden" id="token" name="token" value="">
         <input type="hidden" id="allLans" name="allLans" value="">
+        <input type="hidden" id="clubbed" name="clubbed" value="">
+        <input type="hidden" id="reflanno" name="reflanno" value="">
+        <input type="hidden" id="req_type" name="req_type" value="">
+        <input type="hidden" id="case_created" name="case_created" value="">
         <input type="hidden" id="flag" name="flag" value="">
         <input type="hidden" value="Confirm Payment">
     </form>
@@ -26,6 +30,10 @@
                 document.getElementById("wish").setAttribute('value', getUrlParameter('wish'));
                 document.getElementById("token").setAttribute('value', getUrlParameter('token'));
                 document.getElementById("allLans").setAttribute('value', getUrlParameter('lan'));
+                document.getElementById("clubbed").setAttribute('value', getUrlParameter('clubbed'));
+                document.getElementById("reflanno").setAttribute('value', getUrlParameter('reflanno'));
+                document.getElementById("req_type").setAttribute('value', getUrlParameter('req_type'));
+                document.getElementById("case_created").setAttribute('value', getUrlParameter('case_created'));
                 document.getElementById("flag").setAttribute('value', getUrlParameter('flag'));
                 sendForm();
             }
@@ -34,7 +42,7 @@
             location_search = location_search.substring(11)
             location_search = window.atob(location_search);
             location_search = JSON.parse(location_search)
-            location_search = `?flag=${location_search.flag}&lan=${location_search.lan}&mobile=${location_search.mobile}&email=${location_search.email}&amount=${location_search.amount}&wish=${location_search.wish}&token=${location_search.token}&case_created=${location_search['case_created']}&link=${location_search.link}`
+            location_search = `?flag=${location_search.flag}&lan=${location_search.lan}&mobile=${location_search.mobile}&email=${location_search.email}&amount=${location_search.amount}&wish=${location_search.wish}&token=${location_search.token}&case_created=${location_search['case_created']}&link=${location_search.link}&clubbed=${location_search.clubbed}&reflanno=${location_search.reflanno}&req_type=${location_search.req_type}`
             name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
             var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
             var results = regex.exec(location_search);
