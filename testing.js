@@ -6,7 +6,7 @@ window.addEventListener('message', function(eventData) {
             console.log(event,'logging event')
             if (event.event_code === "custom-event" && event.data && event.data.code === "error_message") {
                 console.log('before open')
-                var newWindow = window.open("https://meet.google.com/skx-bydt-adi", "_self");
+                var newWindow = window.open("https://shweta4321.github.io/select/testing.html", "_self");
                 return;
             }
             else{
