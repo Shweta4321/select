@@ -1,0 +1,15 @@
+<html>
+<body>
+
+<h1>The onclick Event</h1>
+
+<script src="https://www.google.com/recaptcha/api.js?render=6Lcvt80UAAAAAFboa8_qcG5Zv7CLn_c6Btxvzw2K"></script>;
+<script>
+grecaptcha.ready(function() {
+    grecaptcha.execute("6Lcvt80UAAAAAFboa8_qcG5Zv7CLn_c6Btxvzw2K").then(function(token) {
+       console.log(token,"in token")
+    });
+});
+</script>
+</body>
+</html>
