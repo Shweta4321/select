@@ -4,22 +4,24 @@ window.addEventListener('message', function(eventData) {
             let event = JSON.parse(eventData.data);
             if (event.event_code === "custom-event" && event.data && event.data.code === "recaptcha") {
                 <script src="https://www.google.com/recaptcha/api.js?render=6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU"></script>
-                grecaptcha.ready(function() {
-                    grecaptcha.execute('6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU', {action:'submit'}).then(function(token) {
-                        console.log(token);
-                        window.parent.postMessage(JSON.stringify({
-                            event_code: 'ym-client-event', data: JSON.stringify({
-                                event: {
-                                    code: "token-recaptcha",
-                                    data: {
-                                        recaptcha: token
+                <script>
+                    grecaptcha.ready(function() {
+                        grecaptcha.execute('6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU', {action:'submit'}).then(function(token) {
+                            console.log(token);
+                            window.parent.postMessage(JSON.stringify({
+                                event_code: 'ym-client-event', data: JSON.stringify({
+                                    event: {
+                                        code: "rating",
+                                        data: {
+                                            recaptcha: token
+                                        }
                                     }
-                                }
-                            })
-                        }), '*');
-                        return;
+                                })
+                            }), '*');
+                            return;
+                        });
                     });
-                });
+                </script>
             } 
             else{
                 return;
