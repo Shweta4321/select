@@ -9,7 +9,7 @@ window.addEventListener('message', function(eventData) {
                         window.parent.postMessage(JSON.stringify({
                             event_code: 'ym-client-event', data: JSON.stringify({
                                 event: {
-                                    code: "rating",
+                                    code: "token-recaptcha",
                                     data: {
                                         recaptcha: token
                                     }
