@@ -1,6 +1,7 @@
 function recaptcha_token () {
      var fileref=document.createElement('script')
      fileref.setAttribute("src", "https://www.google.com/recaptcha/api.js?render=6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU")
+     console.log(fileref,"i am in fileref")
      document.onreadystatechange = function () { 
         grecaptcha.ready(function() {
             grecaptcha.execute('6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU', {action:'submit'}).then(function(token) {
@@ -15,6 +16,7 @@ window.addEventListener('message', function(eventData) {
         if (JSON.parse(eventData.data)) {
             let event = JSON.parse(eventData.data);
             if (event.event_code === "custom-event" && event.data && event.data.code === "recaptcha") {
+                console.log("i am in event")
                 let token = recaptcha_token()
                 window.parent.postMessage(JSON.stringify({
                     event_code: 'ym-client-event', data: JSON.stringify({
