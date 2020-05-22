@@ -1,4 +1,5 @@
 function recaptcha_token () {
+     console.log("i am here2")
      var fileref=document.createElement('script')
      fileref.setAttribute("src", "https://www.google.com/recaptcha/api.js?render=6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU")
      console.log(fileref,"i am in fileref")
