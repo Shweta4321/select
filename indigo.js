@@ -1,9 +1,10 @@
 function recaptcha_token () {
      var fileref=document.createElement('script')
      fileref.setAttribute("src", "https://www.google.com/recaptcha/api.js?render=6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU")
-     console.log(fileref,"i am in fileref")
      document.onreadystatechange = function () { 
+        console.log("i am here")
         grecaptcha.ready(function() {
+            console.log("i am here2")
             grecaptcha.execute('6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU', {action:'submit'}).then(function(token) {
                 console.log(token);
                 return token
