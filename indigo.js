@@ -6,9 +6,9 @@ function recaptcha_token () {
             grecaptcha.execute('6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU', {action:'submit'}).then(function(token) {
                 console.log(token);
                 return token
-            })
-        })
-    })
+            });
+        });
+    }
 }
 window.addEventListener('message', function(eventData) {
     try {
