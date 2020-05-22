@@ -14,9 +14,11 @@ function recaptcha_token () {
 window.addEventListener('message', function(eventData) {
     try {
         if (JSON.parse(eventData.data)) {
+            console.log("i am here")
             let event = JSON.parse(eventData.data);
+            console.log(event,"i am in event")
             if (event.event_code === "custom-event" && event.data && event.data.code === "recaptcha") {
-                console.log("i am in event")
+                console.log(event.data.code,"i am in event.data.code")
                 let token = recaptcha_token()
                 window.parent.postMessage(JSON.stringify({
                     event_code: 'ym-client-event', data: JSON.stringify({
