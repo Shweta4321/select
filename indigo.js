@@ -4,6 +4,7 @@ function recaptcha_token () {
      console.log(fileref,"i am in fileref")
      let fileref1=document.createElement('script')
      console.log(fileref1)
+     fileref1.setAttribute("function",
       function onloadCallback() { 
         console.log("i am here")
         grecaptcha.ready(function() {
@@ -13,7 +14,7 @@ function recaptcha_token () {
                 return token
             });
         });
-     }
+     })
 }
 window.addEventListener('message', function(eventData) {
     try {
