@@ -3,6 +3,7 @@ function recaptcha_token () {
      fileref.setAttribute("src", "https://www.google.com/recaptcha/api.js?render=6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU")
      console.log(fileref,"i am in fileref")
      let fileref1=document.createElement('script')
+     console.log(fileref1)
       function onloadCallback() { 
         console.log("i am here")
         grecaptcha.ready(function() {
