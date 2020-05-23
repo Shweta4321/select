@@ -5,7 +5,7 @@ function recaptcha_token () {
      let fileref1=document.createElement('script')
      console.log(fileref1)
      fileref1.setAttribute(function,
-       onloadCallback() { 
+       function onloadCallback() { 
         console.log("i am here")
         grecaptcha.ready(function() {
             console.log("i am here2")
