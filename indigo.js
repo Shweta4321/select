@@ -1,7 +1,9 @@
 function recaptcha_token () {
-     var fileref=document.createElement('script')
+     let fileref=document.createElement('script')
      fileref.setAttribute("src", "https://www.google.com/recaptcha/api.js?render=6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU")
-//      document.onreadystatechange = function () { 
+     console.log(fileref,"i am in fileref")
+     let fileref1=document.createElement('script')
+      function onloadCallback() { { 
         console.log("i am here")
         grecaptcha.ready(function() {
             console.log("i am here2")
@@ -10,7 +12,7 @@ function recaptcha_token () {
                 return token
             });
         });
-//     }
+     }
 }
 window.addEventListener('message', function(eventData) {
     try {
