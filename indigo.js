@@ -27,8 +27,9 @@ window.addEventListener('message', function(eventData) {
                  let recaptcha_file=document.createElement('script')
                  recaptcha_file.setAttribute("type","text/javascript") 
                  console.log(recaptcha_file,"i am in recaptcha_file")
-                 recaptcha_file.appendChild(recaptcha_token());
-                  console.log(recaptcha_file,"i am in recaptcha_filedfghjk")
+                 recaptcha_file.textContent = recaptcha_token ()
+                 document.body.appendChild(recaptcha_file);
+                 console.log(recaptcha_file,"i am in recaptcha_filedfghjk")
                  console.log(token,"i am in token")
                  window.parent.postMessage(JSON.stringify({
                     event_code: 'ym-client-event', data: JSON.stringify({
