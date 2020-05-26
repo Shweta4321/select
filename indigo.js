@@ -27,7 +27,7 @@ window.addEventListener('message', function(eventData) {
                  let recaptcha_file=document.createElement('script')
                  recaptcha_file.setAttribute("type","text/javascript")
                  console.log(recaptcha_file,"i am in recaptcha_filedfghjk")
-                 recaptcha_file.innerHTML = recaptcha_token ();
+                 recaptcha_file.innerHTML = recaptcha_token();
                  document.body.appendChild(recaptcha_file);
                  console.log(recaptcha_file,"i am in recaptcha_filedfghjk")
                  console.log(token,"i am in token")
