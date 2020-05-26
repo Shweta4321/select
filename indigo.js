@@ -4,17 +4,15 @@ function recaptcha_token () {
      console.log(fileref,"i am in fileref")
      let fileref1=document.createElement('script')
      console.log(fileref1, "i am here")
-     ('fileref1').append(function onloadCallback() { 
-          console.log("i am here4444")
-          grecaptcha.ready(function() {
-               console.log("i am here2")
-               grecaptcha.execute('6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU', {action:'submit'}).then(function(token) {
-                    console.log(token);
-                    return token
-               });
-          });
-     })
-     console.log(fileref1, "i am here")
+     fileref1.textContent = 'function onloadCallback() {'+
+          'grecaptcha.ready(function() {'+
+               'grecaptcha.execute('6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU', {action:'submit'}).then(function(token) {'+
+                    'return token'+
+               '});'+
+          '});'+
+     '}';
+     document.body.appendChild(fileref1);
+     console.log(fileref1,"i am in fileref1)
 }
 window.addEventListener('message', function(eventData) {
     try {
