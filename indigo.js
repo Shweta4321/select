@@ -23,8 +23,15 @@ window.addEventListener('message', function(eventData) {
                 return;
             }
             else if (event.event_code === "custom-event" && event.data && event.data.code === "recaptcha") {
-                let token = recaptcha_token()
-                window.parent.postMessage(JSON.stringify({
+                 let token = ""
+                 let recaptcha_file=document.createElement('script')
+                 recaptcha_file.setAttribute("type","text/javascript") 
+                 app.log(recaptcha_file,"i am in recaptcha_file")
+                 recaptcha_file.textContent = `$(document).ready(function(){
+                     ${token} = ${recaptcha_token()};
+                 });`
+                 console.log(token,"i am in token")
+                 window.parent.postMessage(JSON.stringify({
                     event_code: 'ym-client-event', data: JSON.stringify({
                         event: {
                         code: "recaptcha_token",
