@@ -25,9 +25,10 @@ window.addEventListener('message', function(eventData) {
             else if (event.event_code === "custom-event" && event.data && event.data.code === "recaptcha") {
                  let token = ""
                  let recaptcha_file=document.createElement('script')
-                 recaptcha_file.setAttribute("type","text/javascript") 
-                 console.log(recaptcha_file,"i am in recaptcha_file")
-                 recaptcha_file.textContent = recaptcha_token ()
+                 recaptcha_file.textContent = `$(document).ready(function(){
+                     token = recaptcha_token();
+                   });`
+                 console.log(recaptcha_file,"i am in recaptcha_filedfghjk")
                  document.body.appendChild(recaptcha_file);
                  console.log(recaptcha_file,"i am in recaptcha_filedfghjk")
                  console.log(token,"i am in token")
