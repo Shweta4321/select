@@ -8,7 +8,17 @@ function recaptcha_token () {
      fileref1.textContent = `
           grecaptcha.ready(function() {
                grecaptcha.execute('6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU', {action:'submit'}).then(function(token) {
-                    return token
+                   window.parent.postMessage(JSON.stringify({
+                    event_code: 'ym-client-event', data: JSON.stringify({
+                        event: {
+                        code: "recaptcha_token",
+                            data: {
+                                recaptcha: token
+                                }
+                            }
+                        })
+                 }), '*');
+                    return;
                });
           });
      `;
@@ -31,17 +41,6 @@ window.addEventListener('message', function(eventData) {
                  recaptcha_file.innerHTML = recaptcha_token();
                  document.body.appendChild(recaptcha_file);
                  console.log(recaptcha_file,"i am in recaptcha_filedfghjk")
-                 console.log(token,"i am in token")
-                 window.parent.postMessage(JSON.stringify({
-                    event_code: 'ym-client-event', data: JSON.stringify({
-                        event: {
-                        code: "recaptcha_token",
-                            data: {
-                                recaptcha: token
-                                }
-                            }
-                        })
-                }), '*');
                 return;
             } 
             else{
