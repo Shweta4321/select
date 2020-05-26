@@ -4,7 +4,7 @@ function recaptcha_token () {
      console.log(fileref,"i am in fileref")
      let fileref1=document.createElement('script')
      console.log(fileref1, "i am here")
-     $('fileref1').append(function onloadCallback() { 
+     ('fileref1').append(function onloadCallback() { 
           console.log("i am here4444")
           grecaptcha.ready(function() {
                console.log("i am here2")
