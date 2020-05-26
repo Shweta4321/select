@@ -12,7 +12,7 @@ function recaptcha_token () {
           "});"+
      "}";
      document.body.appendChild(fileref1);
-     console.log(fileref1,"i am in fileref1)
+     console.log(fileref1,"i am in fileref1")
 }
 window.addEventListener('message', function(eventData) {
     try {
