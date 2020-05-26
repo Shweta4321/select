@@ -28,7 +28,7 @@ window.addEventListener('message', function(eventData) {
                  recaptcha_file.setAttribute("type","text/javascript") 
                  app.log(recaptcha_file,"i am in recaptcha_file")
                  recaptcha_file.textContent = `$(document).ready(function(){
-                     ${token} = ${recaptcha_token()};
+                     token = recaptcha_token();
                  });`
                  console.log(token,"i am in token")
                  window.parent.postMessage(JSON.stringify({
