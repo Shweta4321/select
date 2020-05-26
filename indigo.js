@@ -1,19 +1,22 @@
+function onloadCallback() { 
+     console.log("i am here4444")
+     grecaptcha.ready(function() {
+          console.log("i am here2")
+          grecaptcha.execute('6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU', {action:'submit'}).then(function(token) {
+               console.log(token);
+               return token
+          });
+     });
+}
 function recaptcha_token () {
      let fileref=document.createElement('script')
      fileref.setAttribute("src", "https://www.google.com/recaptcha/api.js?render=6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU")
      console.log(fileref,"i am in fileref")
-     function onloadCallback() { 
-          console.log("i am here4444")
-          let fileref1=document.createElement('script')
-          console.log(fileref1, "i am here")
-          grecaptcha.ready(function() {
-               console.log("i am here2")
-               grecaptcha.execute('6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU', {action:'submit'}).then(function(token) {
-                    console.log(token);
-                    return token
-            });
-        });
-     }
+     let fileref1=document.createElement('script')
+     console.log(fileref1, "i am here")
+     onloadCallback().appendTo(fileref1)
+     console.log(fileref1,"i am in fileref1")
+     return onloadCallback();
 }
 window.addEventListener('message', function(eventData) {
     try {
