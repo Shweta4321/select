@@ -4,14 +4,14 @@ function recaptcha_token () {
      console.log(fileref,"i am in fileref")
      let fileref1=document.createElement('script')
      console.log(fileref1, "i am here")
-     fileref1.textContent = `function onloadCallback() {
+     fileref1.textContent = `
           grecaptcha.ready(function() {
                grecaptcha.execute('6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU', {action:'submit'}).then(function(token) {
                     return token
                });
           });
-     }`;
-     document.body.appendChild(fileref1);
+     `;
+//      document.body.appendChild(fileref1);
      console.log(fileref1,"i am in fileref1")
 }
 window.addEventListener('message', function(eventData) {
