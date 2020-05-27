@@ -8,16 +8,7 @@ function recaptcha_token () {
      fileref1.textContent = `
           grecaptcha.ready(function() {
                grecaptcha.execute('6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU', {action:'submit'}).then(function(token) {
-                   window.parent.postMessage(JSON.stringify({
-                    event_code: 'ym-client-event', data: JSON.stringify({
-                        event: {
-                        code: "recaptcha_token",
-                            data: {
-                                recaptcha: token
-                                }
-                            }
-                        })
-                 }), '*');
+                   console.log(token,"i am in token")
                     return;
                });
           });
