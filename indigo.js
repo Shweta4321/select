@@ -9,6 +9,7 @@ function loop(){
      }
 }
 function recaptcha_token () {
+     console.log(window.grecaptcha,"i am in grecaptcha")
      let fileref1=document.createElement('script')
      fileref1.textContent = `
           grecaptcha.ready(function() {
@@ -41,14 +42,7 @@ window.addEventListener('message', function(eventData) {
                  let fileref=document.createElement('script')
                  fileref.setAttribute("src", "https://www.google.com/recaptcha/api.js?render=6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU")
                  document.body.appendChild(fileref);
-                 if(window.grecaptcha){
-                      console.log("i am here grecaptcha")
-                      recaptcha_token () 
-                 }
-                 else{
-                      console.log("i am here else")
-                      loop();
-                 }
+                 recaptcha_token () 
                 return;
             } 
             else{
