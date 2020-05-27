@@ -20,7 +20,7 @@ function recaptcha_token () {
 }
 window.addEventListener('message', function(eventData) {
     try {
-        if (JSON.parse(eventData.data)) {
+        if (typeof(eventData.data) == 'object') {
             let event = JSON.parse(eventData.data);
             console.log(event,"in event");
              if (event.event_code === "custom-event" && event.data && event.data.code === "live_agent") {
