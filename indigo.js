@@ -23,7 +23,8 @@ window.addEventListener('message', function(eventData) {
             }
             else if (event.event_code === "custom-event" && event.data && event.data.code === "recaptcha") {
                  let fileref=document.createElement('script')
-                    fileref.setAttribute("defer src", "https://www.google.com/recaptcha/api.js?render=6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU")
+                    fileref.setAttribute("defer")
+                    fileref.setAttribute("src", "https://www.google.com/recaptcha/api.js?render=6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU")
                     console.log(fileref,"i am in fileref")
                     document.body.appendChild(fileref);
                 recaptcha_token();
