@@ -1,8 +1,7 @@
-function recaptcha_token () {
+function recaptcha_token (callback) {
      let fileref=document.createElement('script')
      fileref.setAttribute("src", "https://www.google.com/recaptcha/api.js?render=6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU")
-     fileref.setAttribute('defer', true);
-     fileref.setAttribute('async', false);
+     fileref.onload = () => callback(fileref);
      console.log(fileref,"i am in fileref")
      document.body.appendChild(fileref);
      let fileref1=document.createElement('script')
@@ -20,7 +19,7 @@ function recaptcha_token () {
 }
 window.addEventListener('message', function(eventData) {
     try {
-        if (typeof(eventData.data) == 'object') {
+        if (JSON.parse(eventData.data)) {
             let event = JSON.parse(eventData.data);
             console.log(event,"in event");
              if (event.event_code === "custom-event" && event.data && event.data.code === "live_agent") {
@@ -28,7 +27,7 @@ window.addEventListener('message', function(eventData) {
                 return;
             }
             else if (event.event_code === "custom-event" && event.data && event.data.code === "recaptcha") {
-                 recaptcha_token();
+                recaptcha_token(script => {});
                 return;
             } 
             else{
