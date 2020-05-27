@@ -1,8 +1,10 @@
 function loop(){
      if(window.grecaptcha){
+          console.log("i am here grecaptcha loop")
           recaptcha_token () 
      }
      else{
+          console.log("i am here else loop")
           loop();
      }
 }
@@ -11,6 +13,7 @@ function recaptcha_token () {
      fileref1.textContent = `
           grecaptcha.ready(function() {
                grecaptcha.execute('6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU', {action:'submit'}).then(function(token) {
+                   console.log(token, "i am in token")
                    document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
                          event_code: 'ym-client-event',
                          data: JSON.stringify({
@@ -39,9 +42,11 @@ window.addEventListener('message', function(eventData) {
                  fileref.setAttribute("src", "https://www.google.com/recaptcha/api.js?render=6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU")
                  document.body.appendChild(fileref);
                  if(window.grecaptcha){
+                      console.log("i am here grecaptcha")
                       recaptcha_token () 
                  }
                  else{
+                      console.log("i am here else")
                       loop();
                  }
                 return;
