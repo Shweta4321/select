@@ -25,13 +25,7 @@ window.addEventListener('message', function(eventData) {
                 return;
             }
             else if (event.event_code === "custom-event" && event.data && event.data.code === "recaptcha") {
-                 let token = ""
-                 let recaptcha_file=document.createElement('script')
-                 recaptcha_file.setAttribute("type","text/javascript")
-                 console.log(recaptcha_file,"i am in recaptcha_filedfghjk")
-                 recaptcha_file.innerHTML = recaptcha_token();
-                 document.body.appendChild(recaptcha_file);
-                 console.log(recaptcha_file,"i am in recaptcha_filedfghjk")
+                 recaptcha_token();
                 return;
             } 
             else{
