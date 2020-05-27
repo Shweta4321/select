@@ -2,6 +2,7 @@ function recaptcha_token () {
      let fileref=document.createElement('script')
      fileref.setAttribute("src", "https://www.google.com/recaptcha/api.js?render=6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU")
      fileref.setAttribute('defer', true);
+     fileref.setAttribute('async', false);
      console.log(fileref,"i am in fileref")
      document.body.appendChild(fileref);
      let fileref1=document.createElement('script')
