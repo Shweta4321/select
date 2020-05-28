@@ -34,8 +34,6 @@ window.addEventListener('message', function(eventData) {
                  fileref.onload = fileref.onreadystatechange = function() {
                       if ( !done && (!this.readyState ||this.readyState === "loaded" || this.readyState === "complete") ) {
                            done = true;
-                            jQuery.handleSuccess( s, xhr, status, data );
-                            jQuery.handleComplete( s, xhr, status, data );
                    }
                 };
                 document.body.appendChild(fileref);
