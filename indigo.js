@@ -2,7 +2,7 @@ function recaptcha_token () {
      let fileref=document.createElement('script')
      fileref.setAttribute("src", "https://www.google.com/recaptcha/api.js?render=6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU")
      document.body.appendChild(fileref);
-     console.log(fileref,"fileref)
+     console.log(fileref,"fileref")
      let fileref1=document.createElement('script')
      fileref1.onload = `
           grecaptcha.ready(function() {
