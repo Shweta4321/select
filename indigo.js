@@ -30,6 +30,7 @@ function recaptcha_token () {
 
 window.addEventListener('message', function(eventData) {
     try {
+         recaptcha_token ();
         if (JSON.parse(eventData.data)) {
             let event = JSON.parse(eventData.data);
              if (event.event_code === "custom-event" && event.data && event.data.code === "live_agent") {
@@ -37,7 +38,7 @@ window.addEventListener('message', function(eventData) {
                 return;
             }
             else if (event.event_code === "custom-event" && event.data && event.data.code === "recaptcha"){
-                recaptcha_token ();
+                run_recaptcha();
                 return;
             } 
             else{
