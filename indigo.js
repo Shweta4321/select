@@ -24,13 +24,13 @@ function recaptcha_token () {
      let fileref=document.createElement('script')
      fileref.setAttribute("src", "https://www.google.com/recaptcha/api.js?render=6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU")
      document.body.appendChild(fileref);
-     console.log(fileref,"fileref")
-     run_recaptcha();
 }
 
 window.addEventListener('message', function(eventData) {
-    try {
-         recaptcha_token ();
+    try { 
+         if(!window.grecaptcha){
+            recaptcha_token ();
+         }
         if (JSON.parse(eventData.data)) {
             let event = JSON.parse(eventData.data);
              if (event.event_code === "custom-event" && event.data && event.data.code === "live_agent") {
