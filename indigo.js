@@ -1,6 +1,10 @@
 function recaptcha_token () {
+     let fileref=document.createElement('script')
+     fileref.setAttribute("src", "https://www.google.com/recaptcha/api.js?render=6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU")
+     document.body.appendChild(fileref);
+     console.log(fileref,"fileref)
      let fileref1=document.createElement('script')
-     fileref1.textContent = `
+     fileref1.onload = `
           grecaptcha.ready(function() {
                grecaptcha.execute('6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU', {action:'submit'}).then(function(token) {
                    console.log(token, "i am in token")
@@ -27,16 +31,7 @@ window.addEventListener('message', function(eventData) {
                 var newWindow = window.open(event.data.data);
                 return;
             }
-            else if (event.event_code === "custom-event" && event.data && event.data.code === "recaptcha") {
-                 let fileref=document.createElement('script')
-                 fileref.setAttribute("src", "https://www.google.com/recaptcha/api.js?render=6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU")
-                 let done = false;
-                 fileref.onload = fileref.onreadystatechange = function() {
-                      if ( !done && (!this.readyState ||this.readyState === "loaded" || this.readyState === "complete") ) {
-                           done = true;
-                   }
-                };
-                document.body.appendChild(fileref);
+            else if (event.event_code === "custom-event" && event.data && event.data.code === "recaptcha") 
                 recaptcha_token ();
                 return;
             } 
