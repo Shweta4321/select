@@ -28,6 +28,7 @@ function recaptcha_token () {
 
 window.addEventListener('message', function(eventData) {
     try { 
+         console.log(eventData,"i am in eventData")
          if(!window.grecaptcha){
             recaptcha_token ();
          }
@@ -38,6 +39,7 @@ window.addEventListener('message', function(eventData) {
                 return;
             }
             else if (event.event_code === "custom-event" && event.data && event.data.code === "recaptcha"){
+                console.log("i am in recaptcha")
                 run_recaptcha();
                 return;
             } 
