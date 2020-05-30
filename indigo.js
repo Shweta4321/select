@@ -3,7 +3,6 @@ function run_recaptcha(){
      fileref1.textContent = `
           grecaptcha.ready(function() {
                grecaptcha.execute('6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU', {action:'submit'}).then(function(token) {
-                   console.log(token, "i am in token")
                    document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
                          event_code: 'ym-client-event',
                          data: JSON.stringify({
@@ -28,18 +27,17 @@ function recaptcha_token () {
 
 window.addEventListener('message', function(eventData) {
     try { 
-         console.log(eventData,"i am in eventData")
          if(!window.grecaptcha){
             recaptcha_token ();
          }
         if (JSON.parse(eventData.data)) {
             let event = JSON.parse(eventData.data);
              if (event.event_code === "custom-event" && event.data && event.data.code === "live_agent") {
+                console.log("i ma in liveagegnt")
                 var newWindow = window.open(event.data.data);
                 return;
             }
             else if (event.event_code === "custom-event" && event.data && event.data.code === "recaptcha"){
-                console.log("i am in recaptcha")
                 run_recaptcha();
                 return;
             } 
