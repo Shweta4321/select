@@ -33,7 +33,6 @@ window.addEventListener('message', function(eventData) {
         if (JSON.parse(eventData.data)) {
             let event = JSON.parse(eventData.data);
              if (event.event_code === "custom-event" && event.data && event.data.code === "live_agent") {
-                console.log("i ma in liveagegnt")
                 var newWindow = window.open(event.data.data);
                 return;
             }
