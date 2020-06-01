@@ -37,6 +37,7 @@ window.addEventListener('message', function(eventData) {
                 return;
             }
             else if (event.event_code === "custom-event" && event.data && event.data.code === "recaptcha"){
+                console.log("i am in token")
                 run_recaptcha();
                 return;
             } 
