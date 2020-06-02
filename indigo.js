@@ -22,7 +22,7 @@ function run_recaptcha(){
 function recaptcha_token () {
      let fileref=document.createElement('script')
      fileref.setAttribute("src", "https://www.google.com/recaptcha/api.js?render=6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU")
-     document.body.appendChild(fileref);
+     document.head.appendChild(fileref);
 }
 
 window.addEventListener('message', function(eventData) {
