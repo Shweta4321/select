@@ -1,5 +1,5 @@
 function run_recaptcha(){
-     .grecaptcha-badge {
+     grecaptcha-badge {
         display:none !important;
      }
      grecaptcha.ready(function () {
