@@ -1,7 +1,6 @@
 function run_recaptcha(){
     const recaptcha = $(".grecaptcha-badge");
-    recaptcha.css({ visibility: "hidden" });
-    recaptcha.css({opacity: 0 })
+    recaptcha.css({ visibility: "hidden !important"});
      grecaptcha.ready(function () {
         grecaptcha.execute('6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU', {action: 'submit'}).then(function (token) {
             document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
