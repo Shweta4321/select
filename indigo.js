@@ -1,10 +1,8 @@
 function run_recaptcha(){
      grecaptcha.ready(function () {
         grecaptcha.execute('6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU', {action: 'submit'}).then(function (token) {
-             const recaptcha = $(".grecaptcha-badge");
-             recaptcha.css({ visibility: "hidden !important"});
-             recaptcha.css({ display: "none !important"});
-            document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
+             window.reca_send = false
+             document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
                 event_code: 'ym-client-event',
                 data: JSON.stringify({
                     event: {
@@ -13,7 +11,6 @@ function run_recaptcha(){
                     }
                 })
             }), '*');
-            window.recaptcha_send = true;
             return;
         });
     });
