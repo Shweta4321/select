@@ -1,4 +1,6 @@
 function run_recaptcha(){
+    const recaptcha = $(".grecaptcha-badge");
+    recaptcha.css({ display: "none" });
      grecaptcha.ready(function () {
         grecaptcha.execute('6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU', {action: 'submit'}).then(function (token) {
             document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
