@@ -1,7 +1,6 @@
 function run_recaptcha(){
      grecaptcha.ready(function () {
         grecaptcha.execute('6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU', {action: 'submit'}).then(function (token) {
-             window.reca_send = false
              document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
                 event_code: 'ym-client-event',
                 data: JSON.stringify({
