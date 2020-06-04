@@ -1,7 +1,6 @@
 function run_recaptcha(){
      grecaptcha.ready(function () {
         grecaptcha.execute('6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU', {action: 'submit'}).then(function (token) {
-             document.getElementsByClassName("grecaptcha-badge")[0].style.visibility = "hidden";
              document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
                 event_code: 'ym-client-event',
                 data: JSON.stringify({
@@ -19,6 +18,7 @@ function recaptcha_token () {
      let fileref=document.createElement('script')
      fileref.setAttribute("src", "https://www.google.com/recaptcha/api.js?render=6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU")
      document.head.appendChild(fileref);
+     document.getElementsByClassName("grecaptcha-badge")[0].style.visibility = "hidden";
 }
 window.addEventListener('message', function(eventData) {
     try { 
