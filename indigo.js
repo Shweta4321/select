@@ -1,6 +1,5 @@
 function run_recaptcha(){
-     let recaptcha = $('.grecaptcha-badge')
-     recaptcha.css({display:"none !important"})
+     document.getElementsByClassName("grecaptcha-badge").style[0] = "display: none !important;"
      grecaptcha.ready(function () {
         grecaptcha.execute('6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU', {action: 'submit'}).then(function (token) {
              document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
