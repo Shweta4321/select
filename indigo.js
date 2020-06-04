@@ -18,7 +18,6 @@ function recaptcha_token () {
      let fileref=document.createElement('script')
      fileref.setAttribute("src", "https://www.google.com/recaptcha/api.js?render=6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU")
      document.head.appendChild(fileref);
-     document.getElementsByClassName("grecaptcha-badge")[0].style.visibility = "hidden";
 }
 window.addEventListener('message', function(eventData) {
     try { 
@@ -33,6 +32,7 @@ window.addEventListener('message', function(eventData) {
                 return;
             }
             else if (event.event_code === "custom-event" && event.data && event.data.code === "recaptcha"){
+                document.getElementsByClassName("grecaptcha-badge")[0].style.visibility = "hidden";
                 console.log("i am in token")
                 run_recaptcha();
                 return;
