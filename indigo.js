@@ -1,5 +1,6 @@
 function run_recaptcha(){
      let fileref1=document.createElement('script')
+     console.log(fileref1,"i am in fileref1")
      fileref1.textContent = `
           grecaptcha.ready(function() {
                grecaptcha.execute('6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU', {action:'submit'}).then(function(token) {
@@ -17,7 +18,7 @@ function run_recaptcha(){
                });
           });
      `;
-//      document.body.appendChild(fileref1);
+     document.body.appendChild(fileref1);
 }
 function recaptcha_token () {
      let fileref=document.createElement('script')
