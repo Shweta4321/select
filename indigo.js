@@ -19,7 +19,7 @@ function recaptcha_token () {
      fileref.setAttribute("src", "https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU")
      document.head.appendChild(fileref);
 }
-let onloadCallback = function() {
+var onloadCallback = function() {
     document.getElementsByClassName("grecaptcha-badge")[0].style.visibility = "hidden";
 };
 window.addEventListener('message', function(eventData) {
