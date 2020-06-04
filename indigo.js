@@ -34,7 +34,6 @@ window.addEventListener('message', function(eventData) {
             else if (event.event_code === "custom-event" && event.data && event.data.code === "recaptcha"){
                 console.log("i am in token")
                 run_recaptcha();
-                document.getElementsByClassName("grecaptcha-badge")[0].style.visibility = "hidden";
                 return;
             } 
             else{
