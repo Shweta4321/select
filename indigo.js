@@ -38,9 +38,6 @@ window.addEventListener('message', function(eventData) {
                 return;
             }
             else if (event.event_code === "custom-event" && event.data && event.data.code === "recaptcha"){
-                 while(!window.grecaptcha){
-                      recaptcha_token ();
-                 }
                 run_recaptcha();
                 return;
             } 
