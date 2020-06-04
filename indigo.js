@@ -1,19 +1,23 @@
 function run_recaptcha(){
-     grecaptcha.ready(function () {
-        grecaptcha.execute('6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU', {action: 'submit'}).then(function (token) {
-             console.log(token,"i am in token")
-             document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
-                event_code: 'ym-client-event',
-                data: JSON.stringify({
-                    event: {
-                        code: "recaptcha_token",
-                        data: token
-                    }
-                })
-            }), '*');
-            return;
-        });
-    });
+     let fileref1=document.createElement('script')
+     fileref1.textContent = `
+          grecaptcha.ready(function() {
+               grecaptcha.execute('6LfsIrQUAAAAADX6a1sWsNVLQFKFdoA4_7N4YvdU', {action:'submit'}).then(function(token) {
+                   console.log(token,"i am in token")
+                   document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
+                         event_code: 'ym-client-event',
+                         data: JSON.stringify({
+                         event: {
+                              code: "recaptcha_token",
+                              data: token
+                             }
+                         })
+                    }), '*');
+                    return;
+               });
+          });
+     `;
+//      document.body.appendChild(fileref1);
 }
 function recaptcha_token () {
      let fileref=document.createElement('script')
