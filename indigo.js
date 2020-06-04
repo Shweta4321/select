@@ -32,9 +32,9 @@ window.addEventListener('message', function(eventData) {
                 return;
             }
             else if (event.event_code === "custom-event" && event.data && event.data.code === "recaptcha"){
-                document.getElementsByClassName("grecaptcha-badge")[0].style.visibility = "hidden";
                 console.log("i am in token")
                 run_recaptcha();
+                document.getElementsByClassName("grecaptcha-badge")[0].style.visibility = "hidden";
                 return;
             } 
             else{
