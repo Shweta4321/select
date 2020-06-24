@@ -3,7 +3,8 @@ window.addEventListener('message', function(eventData) {
         if (JSON.parse(eventData.data)) {
             let event = JSON.parse(eventData.data);
              if (event.event_code === "custom-event" && event.data && event.data.code === "window_cloesd") {
-                window.close();
+                 console.log("i am here")
+                 window.close();
                 return;
             }
             else{
