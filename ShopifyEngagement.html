@@ -12,6 +12,16 @@
       let redirectURl = params.substring(13,params.length)
       console.log(redirectURl,"i am in redirectURl")
       window.location.replace(redirectURl)
+      window.parent.postMessage(JSON.stringify({
+        event_code: 'ym-client-event', data: JSON.stringify({
+          event: {
+            code: "data",
+            data: {
+              selectedDate: redirectURl
+            }
+          }
+        })
+      }), '*');
     }
  }
 document.getElementById("demo").innerHTML = redirectURl(); 
