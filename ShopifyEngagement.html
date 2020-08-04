@@ -11,27 +11,27 @@
     {
       let redirectURl = params.substring(13,params.length)
       console.log(redirectURl,"i am in redirectURl")
-//       window.parent.postMessage(JSON.stringify({
-//         event_code: 'ym-client-event', data: JSON.stringify({
-//           event: {
-//             code: "data",
-//             data: {
-//               selectedDate: redirectURl
-//             }
-//           }
-//         })
-//       }), '*');
-      window.parent.document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify(
-        {
-            event_code: 'ym-client-event', data: JSON.stringify({
-                event: {
-                    code: "redirectURl",
-                    data: {
-                        cb_token: redirectURl
-                    }
-                }
-            })
-        }), '*');
+      window.parent.postMessage(JSON.stringify({
+        event_code: 'ym-client-event', data: JSON.stringify({
+          event: {
+            code: "data",
+            data: {
+              selectedDate: redirectURl
+            }
+          }
+        })
+      }), '*');
+//       window.parent.document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify(
+//         {
+//             event_code: 'ym-client-event', data: JSON.stringify({
+//                 event: {
+//                     code: "redirectURl",
+//                     data: {
+//                         cb_token: redirectURl
+//                     }
+//                 }
+//             })
+//         }), '*');
       window.location.replace(redirectURl)
     }
  }
