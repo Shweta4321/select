@@ -21,7 +21,7 @@
 //           }
 //         })
 //       }), '*');
-      window.parent.document.getElementById('ymIframe').postMessage(JSON.stringify(
+      window.parent.postMessage(JSON.stringify(
         {
             event_code: 'ym-client-event', data: JSON.stringify({
                 event: {
