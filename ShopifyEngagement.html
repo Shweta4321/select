@@ -5,13 +5,15 @@
   <p id="demo"></p>
 <script>
  function redirectURl(){
-   let params = window.location.search
-    console.log(params)
-    if(params && params.length>0)
-    {
-      let redirectURl = params.substring(13,params.length)
-      console.log(redirectURl,"i am in redirectURl")
-      fetch('https://app.yellowmessenger.com/integrations/yellowmessenger/receive', {
+        var url_string = new URL(window.location.search);
+        console.log(url_string,"url_string")
+        var url = new URL(url_string)
+        console.log(url,"url")
+        var sender = url.searchParams.get("sender");
+        console.log(sender,"in sender")
+        var redirectURl = url.searchParams.get("redirectURl");
+        console.log(redirectURl,"in redirectURl")
+        fetch('https://app.yellowmessenger.com/integrations/yellowmessenger/receive', {
         method: 'POST',
         headers: {
           'content-type': 'application/json',
@@ -39,7 +41,6 @@
       window.location.replace(redirectURl)
       return;
     }
- }
 document.getElementById("demo").innerHTML = redirectURl(); 
 </script>
 </body>
