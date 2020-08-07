@@ -20,6 +20,7 @@
         console.log(redirectURl,"in redirectURl")
         fetch('https://app.yellowmessenger.com/integrations/yellowmessenger/receive', {
         method: 'POST',
+        mode:'cors',
         headers: {
           'Content-Type': 'application/json',
         },
