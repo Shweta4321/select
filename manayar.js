@@ -4,7 +4,7 @@ window.addEventListener('message', function(eventData) {
             let event = JSON.parse(eventData.data);
              if (event.event_code === "custom-event" && event.data && event.data.code === "manyavar-customerLogin") {
                  console.log("i am in event");
-                window.postMessage(JSON.stringify({
+                 document.getElementById('manyavarbotlogin').contentWindow.postMessage(JSON.stringify({
                          event_code: 'manyavar-customerLogin'
                     }), '*');
                  console.log("i have send the event");
