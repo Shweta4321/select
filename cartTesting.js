@@ -10,7 +10,7 @@ window.addEventListener('message', function(eventData) {
                   quantity:2}
                 ,{
                     id:31755952422979,
-                  quantity:2}
+                  quantity:2
                 }]);
                  console.log("i have send the event");
                 return;
