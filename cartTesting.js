@@ -13,8 +13,7 @@ window.addEventListener('message', function(eventData) {
             else if (event.event_code === "custom-event" && event.data && event.data.code === "get-cart") {
                 console.log("i am in get cartevent");
                jQuery.getJSON('/cart.js', function(cart) {
-                   // now have access to Shopify cart object
-                   alert('There are now ' + cart.item_count + ' items in the cart.');
+                   console.log(cart,"in cart")
                 });
                 console.log("i have send the event");
                 return;
