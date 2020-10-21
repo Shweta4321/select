@@ -5,12 +5,7 @@ window.addEventListener('message', function(eventData) {
              if (event.event_code === "custom-event" && event.data && event.data.code === "add-cart") {
                  console.log("i am in add cartevent");
                 jQuery.post('/cart/add.js', {
-                  items: [
-                      {
-                        quantity: 1,
-                        id: 31755734614083,
-                      }
-                  ]
+                  items:event.data.data
                 });
                  console.log("i have send the event");
                 return;
