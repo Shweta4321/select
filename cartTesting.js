@@ -10,9 +10,14 @@ window.addEventListener('message', function(eventData) {
             }
             else if (event.event_code === "custom-event" && event.data && event.data.code === "get-cart") {
                jQuery.getJSON('/cart.js', function(cart) {
-                  window.parent.postMessage(JSON.stringify({
-                         event_code: 'get-cart-data',
-                         event_data: cart
+                  document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
+                         event_code: 'ym-client-event',
+                         data: JSON.stringify({
+                         event: {
+                              code: "get-cart-event",
+                              data: cart
+                             }
+                         })
                     }), '*');
                 });
                 return;
