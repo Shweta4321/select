@@ -14,6 +14,10 @@ window.addEventListener('message', function(eventData) {
                 });
                 return;
             }
+            else if (event.event_code === "custom-event" && event.data && event.data.code === "clear-cart") {
+                jQuery.post('/cart/clear.js');
+                return;
+            }
             else if (event.event_code === "custom-event" && event.data && event.data.code === "get-cart") {
                jQuery.getJSON('/cart.js', function(cart) {
                   document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
