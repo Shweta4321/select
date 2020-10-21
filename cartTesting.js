@@ -9,10 +9,6 @@ window.addEventListener('message', function(eventData) {
                           {
                            id: 31755876139075,
                            quantity: 2
-                          },
-                        {
-                           id: 31755952422979,
-                           quantity: 2
                           }
                         ]
                 });
