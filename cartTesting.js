@@ -3,7 +3,7 @@ window.addEventListener('message', function(eventData) {
         if (JSON.parse(eventData.data)) {
             let event = JSON.parse(eventData.data);
              if (event.event_code === "custom-event" && event.data && event.data.code === "add-cart") {
-                 console.log("i am in add cartevent");
+                 console.log(event.data.data,"i am in add cartevent");
                 jQuery.post('/cart/add.js', {
                   items:event.data.data
                 });
