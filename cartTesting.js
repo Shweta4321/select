@@ -8,6 +8,12 @@ window.addEventListener('message', function(eventData) {
                 });
                 return;
             }
+            else if (event.event_code === "custom-event" && event.data && event.data.code === "update-cart") {
+                jQuery.post('/cart/update.js', {
+                  updates:event.data.data
+                });
+                return;
+            }
             else if (event.event_code === "custom-event" && event.data && event.data.code === "get-cart") {
                jQuery.getJSON('/cart.js', function(cart) {
                   document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
