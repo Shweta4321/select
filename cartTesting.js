@@ -20,16 +20,19 @@ window.addEventListener('message', function(eventData) {
             }
             else if (event.event_code === "custom-event" && event.data && event.data.code === "get-cart") {
                jQuery.getJSON('/cart.js', function(cart) {
-                  document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
-                         event_code: 'ym-client-event',
-                         data: JSON.stringify({
-                         event: {
-                              code: "get-cart-event",
-                              data: cart
-                             }
-                         })
-                    }), '*');
-                });
+                   console.log(typeof cart,"in cart")
+                   if (cart && cart.items && cart.items.length > 0) {
+                      document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
+                             event_code: 'ym-client-event',
+                             data: JSON.stringify({
+                             event: {
+                                  code: "get-cart-event",
+                                  data: cart
+                                 }
+                             })
+                        }), '*');
+                    });
+               }
                 return;
             }
             else if (event.event_code === "custom-event" && event.data && event.data.code === "page_open") {
