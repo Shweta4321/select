@@ -17,11 +17,11 @@ window.addEventListener('message', function (eventData) {
                 jQuery.post('/cart/clear.js');
                 return;
             } else if (event.event_code === "custom-event" && event.data && event.data.code === "get-cart") {
-//                 let pid = event.data.pid;
                 console.log('IN Get cart script');
                 jQuery.getJSON(`/recommendations/products.json?product_id=1521860509809&limit=4`, function (
                     response
                 ) {
+                    console.log(response,"in response")
                     let recommendedProducts = response.products;
                     if (recommendedProducts.length > 0) {
                         document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
