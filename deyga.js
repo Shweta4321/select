@@ -37,7 +37,7 @@ window.addEventListener('message', function (eventData) {
                 });
                 return;
             } else if (event.event_code === "custom-event" && event.data && event.data.code === "page_open") {
-                var newWindow = window.open(event.data.data, "_self");
+                var newWindow = window.open(event.data.data, "_blank");
                 return;
             } else {
                 return;
