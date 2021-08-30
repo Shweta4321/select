@@ -1,31 +1,60 @@
-
-<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, maximum-scale=3.0, user-scalable=no">
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-        <meta name="MobileOptimized" content="width" />
-        <meta name="HandheldFriendly" content="true" />
-        <title>div link with window.opern</title>
-    </head>
-    <body>
-        <a target='_blank' href="https://staging.yellowmessenger.com/pwa/live/x1617022458466" download>open chatbot</a>
-        <script>
-        	console.log("i am here")
-            document.getElementById("foz").addEventListener("click", function(evt) {
-            		console.log("i am here2")
-               var a = document.createElement('a');
-               console.log(a,"i am hererejhgfgh")
-               a.setAttribute("href", this.getAttribute("data-href"));
-               a.setAttribute("target", "_blank");
-               
-               var dispatch = document.createEvent("HTMLEvents")
-               console.log(dispatch,"i am in dispatch")
-               dispatch.initEvent("click", true, true);
-               a.dispatchEvent(dispatch);
-            });
-        </script>
-    </body>
+<head>
+      <meta charset="utf-8">
+</head>
+<body>
+    <script src="https://s0.2mdn.net/ads/studio/Enabler.js"></script>
+    <script type = "text/javascript">
+        if (!Enabler.isInitialized()) {
+          console.log("i am 111111");
+          Enabler.addEventListener(
+            studio.events.StudioEvent.INIT,
+            enablerInitialized);
+        } else {
+           console.log("i am 2222");
+           enablerInitialized();
+        }
+        function enablerInitialized() {
+           console.log("i am 3333");
+          if (!Enabler.isVisible()) {
+             console.log("i am 44444");
+            Enabler.addEventListener(
+              studio.events.StudioEvent.VISIBLE,
+              adVisible);
+          } else {
+             console.log("i am 55555");
+             adVisible();
+          }
+      }
+          function adVisible() {
+                    window.ymConfig = {
+                    bot: 'x1626377357213',
+                    ads: true,
+                    triggerJourney:"classicadds"
+                    };
+                    (function() {
+                        var w = window,
+                            ic = w.YellowMessenger;
+                        if ("function" === typeof ic) ic("reattach_activator"), ic("update", ymConfig);
+                        else {
+                            var d = document,
+                                i = function() {
+                                    i.c(arguments)
+                                };
+
+                            function l() {
+                                var e = d.createElement("script");
+                                e.type = "text/javascript", e.async = !0, e.src = "https://cdn.yellowmessenger.com/plugin/branch-staging/v2/latest/dist/ads.min.js";
+                                var t = d.getElementsByTagName("script")[0];
+                                t.parentNode.insertBefore(e, t)
+                            }
+                            i.q = []; 
+                            i.c = function(e) {i.q.push(e)}; 
+                            w.YellowMessenger = i, /*w.attachEvent ? w.attachEvent("onload", l) : w.addEventListener("load", l, !1)*/
+                            l();
+                        }
+                    })();
+                        }
+    </script>
+</body>
 </html>
